@@ -14,7 +14,7 @@ print(hist_range)
 print("--------------------------------------------------")
 
 # fetching specific data points from the dataframe
-print("open" + hist_range.at["2021-01-04", "Open"])
-print("high" + hist_range.at["2021-01-04", "High"])
-print("low" + hist_range.at["2021-01-04", "Low"])
-print("close" + hist_range.at["2021-01-04", "Close"])
+print("open:   " + str(hist_range.at["2021-01-04", "Open"]))
+print("high:   " + str(hist_range.at["2021-01-04", "High"]))
+print("low:    " + str(hist_range.at["2021-01-04", "Low"]))
+print("close:  " + str(hist_range.at["2021-01-04", "Close"]))
