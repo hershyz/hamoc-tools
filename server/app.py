@@ -10,6 +10,7 @@ def add_symbols():
     storage = open("symbols.txt", "a")
     lines = util.read("symbols.txt")
     unique = []
+    added = []
 
     for symbol in symbols:
         if symbol not in unique:
@@ -18,8 +19,9 @@ def add_symbols():
     for symbol in unique:
         if symbol not in lines:
             storage.write(symbol + "\n")
+            added.append(symbol)
 
-    return "recieved: " + str(symbols)
+    return "added: " + str(added)
 
 if __name__ == "__main__":
     app.run()
