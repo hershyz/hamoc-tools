@@ -3,6 +3,9 @@ import util
 
 app = Flask(__name__)
 
+
+# endpoints:
+# add symbols:
 @app.route("/add_symbols", methods=["POST"])
 def add_symbols():
     data = request.get_json()
@@ -22,6 +25,31 @@ def add_symbols():
             added.append(symbol)
 
     return "added: " + str(added)
+
+
+# get symbols
+@app.route("/get_symbols", methods=["GET"])
+def get_symbols():
+    symbols = util.read("symbols.txt")
+    return str(symbols)
+
+
+# delete symbols
+@app.route("/del_symbols", methods=["POST"])
+def del_symbols():
+    data = request.get_json()
+    symbols = data['symbols']
+    existing_symbols = util.read("symbols.txt")
+    for symbol in symbols:
+        existing_symbols.remove(symbol)
+    overwrite = open("symbols.txt", "w")
+    overwrite.write("")
+    overwrite.close()
+    add_symbols = open("symbols.txt", "a")
+    for symbol in existing_symbols:
+        add_symbols.write(symbol + "\n")
+    return "new symbol list: " + str(existing_symbols)
+
 
 if __name__ == "__main__":
     app.run()
