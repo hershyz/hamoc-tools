@@ -1,5 +1,6 @@
 from flask import Flask, request
 import util
+import stocks
 
 app = Flask(__name__)
 
@@ -49,6 +50,16 @@ def del_symbols():
     for symbol in existing_symbols:
         add_symbols.write(symbol + "\n")
     return "new symbol list: " + str(existing_symbols)
+
+
+# scheduled stock data storing (updating)
+@app.route("/stock_store", methods=["GET"])
+def stock_store():
+    symbols = util.read("symbols.txt")
+    for symbol in symbols:
+        stocks.store(symbol)
+    
+    return "ok" # change this later
 
 
 if __name__ == "__main__":
