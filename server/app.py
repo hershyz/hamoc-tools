@@ -1,6 +1,7 @@
 from flask import Flask, request
 import util
 import stocks
+import options
 
 app = Flask(__name__)
 
@@ -61,6 +62,12 @@ def stock_store():
 
     return "updated: " + str(symbols)
 
+
+@app.route("/options_store", methods=["GET"])
+def options_store():
+    symbols = util.read("symbols.txt")
+    for symbol in symbols:
+        options.store(symbol)
 
 if __name__ == "__main__":
     app.run()
