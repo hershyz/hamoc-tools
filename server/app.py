@@ -68,6 +68,8 @@ def options_store():
     symbols = util.read("symbols.txt")
     for symbol in symbols:
         options.store(symbol)
+    
+    return "ok"
 
 if __name__ == "__main__":
     app.run()
