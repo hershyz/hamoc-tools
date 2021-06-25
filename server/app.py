@@ -59,7 +59,7 @@ def stock_store():
     for symbol in symbols:
         stocks.store(symbol)
 
-    return "ok" # change this later
+    return "updated: " + str(symbols)
 
 
 if __name__ == "__main__":
