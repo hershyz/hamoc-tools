@@ -1,4 +1,5 @@
 import yfinance as yf
+import os
 
 def store(symbol):
     stock = yf.Ticker(symbol)

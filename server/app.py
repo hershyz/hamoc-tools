@@ -53,7 +53,7 @@ def del_symbols():
     return "new symbol list: " + str(existing_symbols)
 
 
-# scheduled stock data storing (updating)
+# scheduled stock data storing (updated from client)
 @app.route("/stock_store", methods=["GET"])
 def stock_store():
     symbols = util.read("symbols.txt")
@@ -63,13 +63,15 @@ def stock_store():
     return "updated: " + str(symbols)
 
 
+# scheduled option data storing (updated from client)
 @app.route("/options_store", methods=["GET"])
 def options_store():
     symbols = util.read("symbols.txt")
     for symbol in symbols:
         options.store(symbol)
     
-    return "ok"
+    return "updated: " + str(symbols)
+
 
 if __name__ == "__main__":
     app.run()
