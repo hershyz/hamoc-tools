@@ -58,7 +58,7 @@ def stock_store():
     symbols = util.read("symbols.txt")
     for symbol in symbols:
         stocks.store(symbol)
-    
+
     return "ok" # change this later
 
 
