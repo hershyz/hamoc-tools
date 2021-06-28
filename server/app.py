@@ -73,5 +73,15 @@ def options_store():
     return "updated: " + str(symbols)
 
 
+# fetching stock data:
+@app.route("/stock_search", methods=["GET"])
+def stock_search():
+    data = request.get_json()
+    symbol = data['symbol']
+    date = data['date']
+    prop = data['property']
+    return stocks.get_property(symbol, date, prop)
+
+
 if __name__ == "__main__":
     app.run()
