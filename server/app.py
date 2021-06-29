@@ -105,11 +105,27 @@ def contract_symbols():
 # get properties given a contract symbol:
 @app.route("/contract_search", methods=["GET"])
 def contract_search():
+
     data = request.get_json()
     symbol = data['symbol']
     contract_symbol = data['contract_symbol']
     date = data['date']
+    prop = data['property']
     lines = util.read("options/" + symbol + "---option---" + date + ".csv")
+    property_line_arr = lines[0].split(",")
+    property_line_arr.insert(0, "row")
+    property_line_arr.remove("")
+
+    i = 1
+    while i < len(lines):
+        arr = lines[i].split(",")
+        if arr[1] == contract_symbol:
+            for j in range(len(property_line_arr)):
+                if property_line_arr[j].lower() == prop.lower():
+                    return arr[j]
+        i += 1
+
+    return "could not find property"
 
 
 if __name__ == "__main__":
