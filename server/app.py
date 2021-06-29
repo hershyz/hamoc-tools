@@ -5,7 +5,6 @@ import options
 
 app = Flask(__name__)
 
-
 # endpoints:
 # add symbols:
 @app.route("/add_symbols", methods=["POST"])
