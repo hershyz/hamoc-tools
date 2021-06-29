@@ -102,12 +102,15 @@ def contract_symbols():
     return str(contract_symbols)
 
 
-# contract search:
+# get properties given a contract symbol:
 @app.route("/contract_search", methods=["GET"])
 def contract_search():
     data = request.get_json()
+    symbol = data['symbol']
     contract_symbol = data['contract_symbol']
     date = data['date']
+    lines = util.read("options/" + symbol + "---option---" + date + ".csv")
+
 
 if __name__ == "__main__":
     app.run()
