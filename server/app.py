@@ -102,5 +102,12 @@ def contract_symbols():
     return str(contract_symbols)
 
 
+# contract search:
+@app.route("/contract_search", methods=["GET"])
+def contract_search():
+    data = request.get_json()
+    contract_symbol = data['contract_symbol']
+    date = data['date']
+
 if __name__ == "__main__":
     app.run()
