@@ -83,5 +83,24 @@ def stock_search():
     return stocks.get_property(symbol, date, prop)
 
 
+# fetch contract symbols:
+@app.route("/contract_symbols", methods=["GET"])
+def contract_symbols():
+    data = request.get_json()
+    symbol = data['symbol']
+    date = data['date']
+    filename = symbol + "---option---" + date + ".csv"
+    lines = util.read("options/" + filename)
+    contract_symbols = []
+    
+    i = 1
+    while i < len(lines):
+        arr = lines[i].split(",")
+        contract_symbols.append(arr[1])
+        i += 1
+
+    return str(contract_symbols)
+
+
 if __name__ == "__main__":
     app.run()
