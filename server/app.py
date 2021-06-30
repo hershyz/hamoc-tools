@@ -152,5 +152,30 @@ def stock_price_query():
     return str(results)
 
 
+# option query endpoint, finds all contract symbols that fall within the given property range:
+@app.route("/option_query", methods=["GET"])
+def option_query():
+
+    data = request.get_json()
+    low_bound = data['low']
+    high_bound = data['high']
+    prop = data['property']
+    results = []
+
+    # arr[0] -> row number (not important)
+    # arr[1] -> contract symbol
+    # arr[2] -> date (not important)
+    # arr[3] -> strike
+    # arr[4] -> last price
+    # arr[5] -> bid
+    # arr[6] -> ask
+    # arr[7] -> change
+    # arr[8] -> percent change
+    # arr[9] -> volume
+    # arr[10] -> open interest
+    # arr[11] -> implied volatility
+
+    
+
 if __name__ == "__main__":
     app.run()
