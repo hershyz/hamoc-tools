@@ -127,5 +127,30 @@ def contract_search():
     return "could not find property"
 
 
+# stock price query endpoint, finds all stocks (stored on the server-side) within the given close price range:
+@app.route("/stock_price_query", method=["GET"])
+def stock_price_query():
+    
+    data = request.get_json()
+    low_price = float(data['low_price'])      # lower price bound
+    high_price = float(data['high_price'])    # higher price bound
+    symbols = util.read("symbols.txt")
+    results = []
+
+    # arr[4] -> close price
+    # arr[0] -> date
+    for symbol in symbols:
+        lines = util.read("stocks/" + symbol + ".csv")
+        i = 1
+        while i < len(lines):
+            curr_arr = lines[i].split(",")
+            curr_close = float(curr_arr[4])
+            if curr_close <= high_price and curr_close >= low_price:
+                results.append(symbol + "," + curr_arr[0])
+            i += 1
+    
+    return str(results)
+
+
 if __name__ == "__main__":
     app.run()
