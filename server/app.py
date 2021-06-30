@@ -160,22 +160,10 @@ def option_query():
     low_bound = data['low']
     high_bound = data['high']
     prop = data['property']
+    files = util.get_files("/options")
     results = []
 
-    # arr[0] -> row number (not important)
-    # arr[1] -> contract symbol
-    # arr[2] -> date (not important)
-    # arr[3] -> strike
-    # arr[4] -> last price
-    # arr[5] -> bid
-    # arr[6] -> ask
-    # arr[7] -> change
-    # arr[8] -> percent change
-    # arr[9] -> volume
-    # arr[10] -> open interest
-    # arr[11] -> implied volatility
-
-    
+    return str(files)
 
 if __name__ == "__main__":
     app.run()
