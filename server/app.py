@@ -72,7 +72,7 @@ def options_store():
     return "updated: " + str(symbols)
 
 
-# fetching stock data:
+# gets the value of a specific property of a stock:
 @app.route("/stock_search", methods=["GET"])
 def stock_search():
     data = request.get_json()
@@ -128,7 +128,7 @@ def contract_search():
 
 
 # stock price query endpoint, finds all stocks (stored on the server-side) within the given close price range:
-@app.route("/stock_price_query", method=["GET"])
+@app.route("/stock_price_query", methods=["GET"])
 def stock_price_query():
     
     data = request.get_json()
