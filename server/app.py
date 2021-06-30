@@ -157,13 +157,25 @@ def stock_price_query():
 def option_query():
 
     data = request.get_json()
-    low_bound = data['low']
-    high_bound = data['high']
+    low_bound = float(data['low'])
+    high_bound = float(data['high'])
     prop = data['property']
+    property_index = options.get_property_index(prop)
     files = util.get_files("/options")
     results = []
 
-    return str(files)
+    for f in files:
+        lines = util.read("options/" + f)
+        i = 1
+        while i < len(lines):
+            arr = lines[i].split(",")
+            val = float(arr[property_index])
+            if val >= low_bound and val <= high_bound:
+                results.append(arr[1])
+            i +=1
+
+    return str(results)
+
 
 if __name__ == "__main__":
     app.run()
