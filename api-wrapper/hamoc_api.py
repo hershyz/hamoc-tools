@@ -31,3 +31,8 @@ class Hamoc_Client:
     def update_stock_data(self):
         r = requests.get(self.uri + "/stock_store")
         return r.text
+    
+    # update options data:
+    def update_options_data(self):
+        r = requests.get(self.uri + "/options_store")
+        return r.text
