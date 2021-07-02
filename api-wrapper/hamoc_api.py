@@ -26,3 +26,8 @@ class Hamoc_Client:
         }
         r = requests.post(self.uri + "/del_symbols", json=payload)
         return r.text
+
+    # update stock data:
+    def update_stock_data(self):
+        r = requests.get(self.uri + "/stock_store")
+        return r.text
