@@ -78,3 +78,13 @@ class Hamoc_Client:
         }
         r = requests.get(self.uri + "/contract_search", json=payload)
         return r.text
+
+    
+    # query stocks based on close price (high and low bound)
+    def stock_query(self, low, high):
+        payload = {
+            "low_price": low,
+            "high_price": high
+        }
+        r = requests.get(self.uri + "/stock_price_query", json=payload)
+        return r.text

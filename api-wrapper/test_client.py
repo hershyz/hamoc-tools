@@ -1,4 +1,3 @@
-from typing import Container
 import hamoc_api as hamocapi
 
 client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
@@ -37,3 +36,8 @@ client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 # date = "2021-06-25"
 # prop = "strike"
 # print(client.get_contract_property(symbol, contract_symbol, date, prop))
+
+# stock price query:
+# low = 2000
+# high = 2100
+# print(client.stock_query(low, high))
