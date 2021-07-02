@@ -36,3 +36,14 @@ class Hamoc_Client:
     def update_options_data(self):
         r = requests.get(self.uri + "/options_store")
         return r.text
+    
+    # gets the value of a specific property of a stock
+    # properties: Date,Open,High,Low,Close,Volume,Dividends,Stock Splits
+    def get_stock_val(self, symbol, date, prop):
+        payload = {
+            "symbol": symbol,
+            "date": date,
+            "property": prop
+        }
+        r = requests.get(self.uri + "/stock_search", json=payload)
+        return r.text

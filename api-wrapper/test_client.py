@@ -15,4 +15,10 @@ client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 # print(client.update_stock_data())
 
 # update options data:
-print(client.update_options_data())
+# print(client.update_options_data())
+
+# get stock values:
+# symbol = "avgo"
+# date = "2021-06-04"
+# prop = "close"
+# print(client.get_stock_val(symbol, date, prop))
