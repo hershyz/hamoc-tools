@@ -41,3 +41,9 @@ client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 # low = 2000
 # high = 2100
 # print(client.stock_query(low, high))
+
+# option query
+# low = 1000
+# high = 2000
+# prop = "strike"
+# print(client.option_query(low, high, prop))

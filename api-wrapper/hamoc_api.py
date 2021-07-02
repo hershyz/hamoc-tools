@@ -88,3 +88,14 @@ class Hamoc_Client:
         }
         r = requests.get(self.uri + "/stock_price_query", json=payload)
         return r.text
+
+    
+    # option query:
+    def option_query(self, low, high, prop):
+        payload =  {
+            "low": low,
+            "high": high,
+            "property": prop
+        }
+        r = requests.get(self.uri + "/option_query", json=payload)
+        return r.text
