@@ -2,6 +2,8 @@ import hamoc_api as hamocapi
 
 client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 
+# ctrl + / in vscode to uncomment any block below:
+
 # add symbols
 # print(client.add_symbols(["ibm", "amzn"]))
 
@@ -22,3 +24,6 @@ client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 # date = "2021-06-04"
 # prop = "close"
 # print(client.get_stock_val(symbol, date, prop))
+
+# fetch contract symbols on a given date:
+symbol = "avgo"
