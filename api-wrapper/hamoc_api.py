@@ -3,7 +3,7 @@ import requests
 
 class Hamoc_Client:    
     
-    
+
     # init
     def __init__(self, uri):
         self.uri = uri
@@ -64,4 +64,17 @@ class Hamoc_Client:
             "date": date
         }
         r = requests.get(self.uri + "/contract_symbols", json=payload)
+        return r.text
+
+
+    # fetch contract (call option) properties:
+    # properties: contractSymbol	lastTradeDate	strike	lastPrice	bid	ask	change	percentChange	volume	openInterest	impliedVolatility	inTheMoney	contractSize	currency
+    def get_contract_property(self, symbol, contract_symbol, date, prop):
+        payload = {
+            "symbol": symbol,
+            "contract_symbol": contract_symbol,
+            "date": date,
+            "property": prop
+        }
+        r = requests.get(self.uri + "/contract_search", json=payload)
         return r.text

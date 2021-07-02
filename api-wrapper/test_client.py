@@ -1,3 +1,4 @@
+from typing import Container
 import hamoc_api as hamocapi
 
 client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
@@ -29,3 +30,10 @@ client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 # symbol = "avgo"
 # date = "2021-06-25"
 # print(client.get_contract_symbols(symbol, date))
+
+# fetch contract properties:
+# symbol = "aapl"
+# contract_symbol = "AAPL210625C00080000"
+# date = "2021-06-25"
+# prop = "strike"
+# print(client.get_contract_property(symbol, contract_symbol, date, prop))
