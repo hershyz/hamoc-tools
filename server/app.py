@@ -1,4 +1,3 @@
-from os import truncate
 from flask import Flask, request
 from threading import Thread
 import util
