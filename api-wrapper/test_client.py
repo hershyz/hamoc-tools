@@ -26,4 +26,6 @@ client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 # print(client.get_stock_val(symbol, date, prop))
 
 # fetch contract symbols on a given date:
-symbol = "avgo"
+# symbol = "avgo"
+# date = "2021-06-25"
+# print(client.get_contract_symbols(symbol, date))

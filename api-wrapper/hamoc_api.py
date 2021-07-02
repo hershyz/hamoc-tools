@@ -3,6 +3,8 @@ import requests
 
 class Hamoc_Client:    
     
+    
+    # init
     def __init__(self, uri):
         self.uri = uri
     
