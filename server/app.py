@@ -62,7 +62,7 @@ def stock_store():
     for symbol in symbols:
         stocks.store(symbol)
 
-    return "updated: " + str(symbols)
+    return "stocks updated: " + str(symbols)
 
 
 # scheduled option data storing (updated from client)
@@ -72,7 +72,7 @@ def options_store():
     for symbol in symbols:
         options.store(symbol)
     
-    return "updated: " + str(symbols)
+    return "options updated: " + str(symbols)
 
 
 # gets the value of a specific property of a stock:
