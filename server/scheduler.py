@@ -7,4 +7,4 @@ def init(uri):
         options_request = requests.get(uri + "/options_store")
         print("[scheduler]: " + stock_request.text)
         print("[scheduler]: " + options_request.text)
-        time.sleep(43200) # 432000 = 12 hours -> update options and data twice a day (on server init)
+        time.sleep(432000) # 432000 = 12 hours -> update options and data twice a day (on server init)
