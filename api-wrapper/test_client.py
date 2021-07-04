@@ -14,7 +14,7 @@ client = hamocapi.Hamoc_Client("http://127.0.0.1:5000") # intiialze the client
 # print(client.del_symbols(["ibm", "amzn"]))
 
 # update stock data:
-# print(client.update_stock_data())
+ #print(client.update_stock_data())
 
 # update options data:
 # print(client.update_options_data())
