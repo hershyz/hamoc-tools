@@ -92,7 +92,7 @@ def show_help():
     print("updateoptions:                                                      attempts to update options data")
     print("getstockval [symbol, YYYY-MM-DD, property]:                         returns the property of a stock given a symbol and date")
     print("contracts [symbol, YYYY-MM-DD]:                                     returns all contracts of a given stock on a specific date")
-    print("getcontractval [symbol, contract symbol, YYYY-MM-DD, prpoerty]:     returns the property of a contract symbol given a date")
+    print("getcontractval [symbol, contract symbol, YYYY-MM-DD, property]:     returns the property of a contract symbol given a date")
     print("stockquery [low, high]:                                             returns all stored stocks on specific dates with a close price between low and high")
     print("optionquery [low, high, property]:                                  returns all contract symbols with the given property between low and high")
 

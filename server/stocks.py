@@ -17,4 +17,4 @@ def get_property(symbol, date, prop):
                 if properties[i].lower() == prop.lower():
                     return arr[i]
     
-    return "error: could not read property"
+    return "error: could not read property (or invalid date), valid stock properties: Open,High,Low,Close,Volume,Dividends,Stock Splits"
