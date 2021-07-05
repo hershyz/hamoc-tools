@@ -86,6 +86,7 @@ def show_help():
     print("updatestocks:                                  attempts to update stock data")
     print("updateoptions:                                 attempts to update options data")
     print("getstockval [symbol, YYYY-MM-DD, property]:    returns the property of a stock given a symbol and date")
+    print("contracts [symbol, YYYY-MM-DD]:                returns all contracts of a given stock on a specific date")
 
 
 def command_loop():
@@ -136,6 +137,12 @@ def command_loop():
         date = command_arr[2]
         prop = command_arr[3]
         print(client.get_stock_val(symbol, date, prop))
+    
+    # contracts command:
+    if command == "contracts":
+        symbols = command_arr[1]
+        date = command_arr[2]
+        print(client.get_contract_symbols(symbols, date))
 
     command_loop()
 
