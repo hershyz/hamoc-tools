@@ -79,14 +79,15 @@ class Hamoc_Client:
 
 # client:
 def show_help():
-    print("help:                                          displays all available commands")
-    print("add [symbols]:                                 adds symbols to the server target list")
-    print("getsymbols:                                    returns a list of symbols from the target list")
-    print("del [symbols]:                                 deletes symbols from the server target list")
-    print("updatestocks:                                  attempts to update stock data")
-    print("updateoptions:                                 attempts to update options data")
-    print("getstockval [symbol, YYYY-MM-DD, property]:    returns the property of a stock given a symbol and date")
-    print("contracts [symbol, YYYY-MM-DD]:                returns all contracts of a given stock on a specific date")
+    print("help:                                                               displays all available commands")
+    print("add [symbols]:                                                      adds symbols to the server target list")
+    print("getsymbols:                                                         returns a list of symbols from the target list")
+    print("del [symbols]:                                                      deletes symbols from the server target list")
+    print("updatestocks:                                                       attempts to update stock data")
+    print("updateoptions:                                                      attempts to update options data")
+    print("getstockval [symbol, YYYY-MM-DD, property]:                         returns the property of a stock given a symbol and date")
+    print("contracts [symbol, YYYY-MM-DD]:                                     returns all contracts of a given stock on a specific date")
+    print("getcontractval [symbol, contract symbol, YYYY-MM-DD, prpoerty]:     returns the property of a contract symbol given a date")
 
 
 def command_loop():
@@ -140,9 +141,19 @@ def command_loop():
     
     # contracts command:
     if command == "contracts":
-        symbols = command_arr[1]
+        symbol = command_arr[1]
         date = command_arr[2]
-        print(client.get_contract_symbols(symbols, date))
+        print(client.get_contract_symbols(symbol, date))
+
+    # getcontractval command:
+    if command == "getcontractval":
+        symbol = command_arr[1]
+        contract_symbol = command_arr[2]
+        date = command_arr[3]
+        prop = command_arr[4]
+        print(client.get_contract_property(symbol, contract_symbol, date, prop))
+
+    
 
     command_loop()
 
