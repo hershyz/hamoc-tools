@@ -77,15 +77,6 @@ class Hamoc_Client:
         return r.text
 
 
-
-
-
-
-
-
-
-
-
 # client:
 def show_help():
     print("help:                displays all available commands")
@@ -114,11 +105,11 @@ def command_loop():
             i += 1
         print(client.add_symbols(symbols))
 
-    command_loop()
-
     # getsymbols command
     if command == "getsymbols":
         print(client.get_symbols())
+
+    command_loop()
 
 
 print("Hamoc CLI - enter 'help' for a list of all available commands")
