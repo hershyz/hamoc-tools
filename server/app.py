@@ -139,7 +139,7 @@ def contract_search():
                     return arr[j]
         i += 1
 
-    return "could not find property"
+    return "could not find property, valid contract properties: contractSymbol,lastTradeDate,strike,lastPrice,bid,ask,change,percentChange,volume,openInterest,impliedVolatility,inTheMoney,contractSize,currency"
 
 
 # stock price query endpoint, finds all stocks (stored on the server-side) within the given close price range:
