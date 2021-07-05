@@ -79,12 +79,13 @@ class Hamoc_Client:
 
 # client:
 def show_help():
-    print("help:                displays all available commands")
-    print("add [symbols]:       adds symbols to the server target list")
-    print("getsymbols:          returns a list of symbols from the target list")
-    print("del [symbols]:       deletes symbols from the server target list")
-    print("updatestocks:        attempts to update stock data")
-    print("updateoptions:       attempts to update options data")
+    print("help:                                          displays all available commands")
+    print("add [symbols]:                                 adds symbols to the server target list")
+    print("getsymbols:                                    returns a list of symbols from the target list")
+    print("del [symbols]:                                 deletes symbols from the server target list")
+    print("updatestocks:                                  attempts to update stock data")
+    print("updateoptions:                                 attempts to update options data")
+    print("getstockval [symbol, YYYY-MM-DD, property]:    returns the property of a stock given a symbol and date")
 
 
 def command_loop():
@@ -128,6 +129,13 @@ def command_loop():
     # updateoptions command:
     if command == "updateoptions":
         print(client.update_options_data())
+
+    # getstockval command:
+    if command == "getstockval":
+        symbol = command_arr[1]
+        date = command_arr[2]
+        prop = command_arr[3]
+        print(client.get_stock_val(symbol, date, prop))
 
     command_loop()
 
