@@ -88,6 +88,7 @@ def show_help():
     print("getstockval [symbol, YYYY-MM-DD, property]:                         returns the property of a stock given a symbol and date")
     print("contracts [symbol, YYYY-MM-DD]:                                     returns all contracts of a given stock on a specific date")
     print("getcontractval [symbol, contract symbol, YYYY-MM-DD, prpoerty]:     returns the property of a contract symbol given a date")
+    print("stockquery [low, high]:                                             returns all stored stocks on specific dates with a close price between low and high")
 
 
 def command_loop():
@@ -153,7 +154,11 @@ def command_loop():
         prop = command_arr[4]
         print(client.get_contract_property(symbol, contract_symbol, date, prop))
 
-    
+    # stockquery command:
+    if command == "stockquery":
+        low = float(command_arr[1])
+        high = float(command_arr[2])
+        print(client.stock_query(low, high))
 
     command_loop()
 
