@@ -1,5 +1,10 @@
 import requests
 
+stock_queries = []
+stock_results = []
+option_queries = []
+option_results = []
+
 # api wrapper:
 class Hamoc_Client:    
     

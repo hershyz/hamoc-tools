@@ -163,18 +163,28 @@ def option_query():
     high_bound = float(data['high'])
     prop = data['property']
     property_index = options.get_property_index(prop)
+
+    if property_index == -1:
+        return "either no results found or incorrect paramters, valid option query properties are: strike,lastPrice,bid,ask,change,percentChange,volume,openInterest,impliedVolatility"
+
     files = util.get_files("/options")
     results = []
 
     for f in files:
-        lines = util.read("options/" + f)
-        i = 1
-        while i < len(lines):
-            arr = lines[i].split(",")
-            val = float(arr[property_index])
-            if val >= low_bound and val <= high_bound:
-                results.append(arr[1])
-            i +=1
+        try:
+            lines = util.read("options/" + f)
+            i = 1
+            while i < len(lines):
+                arr = lines[i].split(",")
+                val = float(arr[property_index])
+                if val >= low_bound and val <= high_bound:
+                    results.append(arr[1])
+                i +=1
+        except:
+            return "either no results found or incorrect paramters, valid option query properties are: strike,lastPrice,bid,ask,change,percentChange,volume,openInterest,impliedVolatility"
+
+    if len(results) == 0:
+        return "either no results found or incorrect paramters, valid option query properties are: strike,lastPrice,bid,ask,change,percentChange,volume,openInterest,impliedVolatility"
 
     return str(results)
 
