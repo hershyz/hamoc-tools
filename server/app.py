@@ -1,5 +1,6 @@
 from flask import Flask, request
 from threading import Thread
+import os
 import util
 import stocks
 import options
@@ -91,15 +92,27 @@ def contract_symbols():
     symbol = data['symbol']
     date = data['date']
     filename = symbol + "---option---" + date + ".csv"
-    lines = util.read("options/" + filename)
-    contract_symbols = []
-    
-    i = 1
-    while i < len(lines):
-        arr = lines[i].split(",")
-        contract_symbols.append(arr[1])
-        i += 1
 
+    try:
+        lines = util.read("options/" + filename)
+        contract_symbols = []
+        
+        i = 1
+        while i < len(lines):
+            arr = lines[i].split(",")
+            contract_symbols.append(arr[1])
+            i += 1
+    except:
+        files = util.get_files("/options")
+        valid = []
+        for f in files:
+            str_f = str(f)
+            symbol = str_f.split("---")[0]
+            date = str_f.split("---")[2]
+            date = str.replace(date, ".csv", "")
+            valid.append(symbol + "," + date)
+        return "stored option chains: " + str(valid)
+        
     return str(contract_symbols)
 
 
