@@ -83,6 +83,8 @@ def show_help():
     print("add [symbols]:       adds symbols to the server target list")
     print("getsymbols:          returns a list of symbols from the target list")
     print("del [symbols]:       deletes symbols from the server target list")
+    print("updatestocks:        attempts to update stock data")
+    print("updateoptions:       attempts to update options data")
 
 
 def command_loop():
@@ -118,6 +120,14 @@ def command_loop():
             symbols.append(command_arr[i])
             i += 1
         print(client.del_symbols(symbols))
+    
+    # updatestocks command:
+    if command == "updatestocks":
+        print(client.update_stock_data())
+    
+    # updateoptions command:
+    if command == "updateoptions":
+        print(client.update_options_data())
 
     command_loop()
 
