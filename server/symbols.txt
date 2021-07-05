@@ -3,5 +3,3 @@ msft
 avgo
 aapl
 tsla
-ibm
-amzn

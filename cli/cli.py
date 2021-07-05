@@ -82,6 +82,7 @@ def show_help():
     print("help:                displays all available commands")
     print("add [symbols]:       adds symbols to the server target list")
     print("getsymbols:          returns a list of symbols from the target list")
+    print("del [symbols]:       deletes symbols from the server target list")
 
 
 def command_loop():
@@ -108,6 +109,15 @@ def command_loop():
     # getsymbols command
     if command == "getsymbols":
         print(client.get_symbols())
+    
+    # del command:
+    if command == "del":
+        symbols = []
+        i = 1
+        while i < len(command_arr):
+            symbols.append(command_arr[i])
+            i += 1
+        print(client.del_symbols(symbols))
 
     command_loop()
 
