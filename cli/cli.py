@@ -84,18 +84,18 @@ class Hamoc_Client:
 
 # client:
 def show_help():
-    print("help:                                                               displays all available commands")
-    print("add [symbols]:                                                      adds symbols to the server target list")
-    print("getsymbols:                                                         returns a list of symbols from the target list")
-    print("del [symbols]:                                                      deletes symbols from the server target list")
-    print("updatestocks:                                                       attempts to update stock data")
-    print("updateoptions:                                                      attempts to update options data")
-    print("getstockval [symbol, YYYY-MM-DD, property]:                         returns the property of a stock given a symbol and date")
-    print("contracts [symbol, YYYY-MM-DD]:                                     returns all contracts of a given stock on a specific date")
-    print("getcontractval [symbol, contract symbol, YYYY-MM-DD, property]:     returns the property of a contract symbol given a date")
-    print("stockquery [low, high]:                                             returns all stored stocks on specific dates with a close price between low and high")
-    print("optionquery [low, high, property]:                                  returns all contract symbols with the given property between low and high")
-    print("queries:                                                            displays all queries made and their results for the current client session")
+    print("help:                                                                 displays all available commands")
+    print("add [symbols]:                                                        adds symbols to the server target list")
+    print("getsymbols:                                                           returns a list of symbols from the target list")
+    print("del [symbols]:                                                        deletes symbols from the server target list")
+    print("updatestocks:                                                         attempts to update stock data")
+    print("updateoptions:                                                        attempts to update options data")
+    print("getstockval [symbol, YYYY-MM-DD, property]:                           returns the property of a stock given a symbol and date")
+    print("contracts [symbol, YYYY-MM-DD]:                                       returns all contracts of a given stock on a specific date")
+    print("getcontractval [symbol, contract symbol, YYYY-MM-DD, property]:       returns the property of a contract symbol given a date")
+    print("stockquery [low, high]:                                               returns all stored stocks on specific dates with a close price between low and high")
+    print("optionquery [low, high, property]:                                    returns all contract symbols with the given property between low and high")
+    print("queries:                                                              displays all queries made and their results for the current client session")
 
 
 def command_loop():
