@@ -7,6 +7,11 @@ import scheduler
 
 app = Flask(__name__)
 
+# debug:
+@app.route("/", methods=["GET"])
+def home():
+    return "<h1>server is running</h1>"
+
 # endpoints:
 # add symbols:
 @app.route("/add_symbols", methods=["POST"])
