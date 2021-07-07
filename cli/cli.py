@@ -95,6 +95,7 @@ def show_help():
     print("getcontractval [symbol, contract symbol, YYYY-MM-DD, property]:     returns the property of a contract symbol given a date")
     print("stockquery [low, high]:                                             returns all stored stocks on specific dates with a close price between low and high")
     print("optionquery [low, high, property]:                                  returns all contract symbols with the given property between low and high")
+    print("queries:                                                            displays all queries made and their results for the current client session")
 
 
 def command_loop():
@@ -164,14 +165,48 @@ def command_loop():
     if command == "stockquery":
         low = float(command_arr[1])
         high = float(command_arr[2])
-        print(client.stock_query(low, high))
+        response = client.stock_query(low, high)
+        print(response)
+
+        stock_queries.append(raw_command)
+        stock_results.append(response)
 
     # option query command:
     if command == "optionquery":
         low = float(command_arr[1])
         high = float(command_arr[2])
         prop = command_arr[3]
-        print(client.option_query(low, high, prop))
+        response = client.option_query(low, high, prop)
+        print(response)
+
+        option_queries.append(raw_command)
+        option_results.append(response)
+
+    # queries command:
+    if command == "queries":
+
+        for i in range(len(stock_queries)):
+            print(stock_queries[i] + ":")
+            raw_results = stock_results[i]
+            raw_results = str.replace(raw_results, "[", "")
+            raw_results = str.replace(raw_results, "]", "")
+            raw_results = str.replace(raw_results, "'", "")
+            results = raw_results.split(", ")
+            for result in results:
+                print(result)
+            print("--------------------------")
+        
+        for i in range(len(option_queries)):
+            print(option_queries[i] + ":")
+            raw_results = option_results[i]
+            raw_results = str.replace(raw_results, "[", "")
+            raw_results = str.replace(raw_results, "]", "")
+            raw_results = str.replace(raw_results, "'", "")
+            results = raw_results.split(", ")
+            for result in results:
+                print(result)
+            print("--------------------------")
+
 
     command_loop()
 
