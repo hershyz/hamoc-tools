@@ -40,4 +40,12 @@
       ...
       Adding an endpoint to the <a href="https://github.com/hershyz/hamoc-tools/blob/main/server/app.py">main file</a> can be done like <a href="https://github.com/hershyz/hamoc-tools/blob/main/docs/endpoints.py">so</a>.
     </pre>
+    
+   <strong>Hosting Elsewhere</strong>
+   <pre>
+    The code is already deployed to a <a href="http://hershyz.pythonanywhere.com">PythonAnywhere</a> server,
+    but Flask webservers can be deployed to GCP, AWS, Azure, Heroku, etc...
+    A requirements file can be found <a href="https://github.com/hershyz/hamoc-server/blob/main/requirements.txt">here</a>.
+    Additionally, some services may require a <a href="https://devcenter.heroku.com/articles/procfile">procfile</a>.
+   </pre>
 </p>
