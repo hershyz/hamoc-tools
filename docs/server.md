@@ -67,6 +67,9 @@ def create_file():
     return "error creating file"                # failing server response to the client
 ```
 
+<br>
+
+<p>
    <strong>Hosting Elsewhere</strong>
    <pre>
     The code is already deployed to a <a href="http://hershyz.pythonanywhere.com">PythonAnywhere</a> server,
@@ -74,3 +77,4 @@ def create_file():
     A requirements file can be found <a href="https://github.com/hershyz/hamoc-server/blob/main/requirements.txt">here</a>.
     Additionally, some services may require a <a href="https://devcenter.heroku.com/articles/procfile">procfile</a>.
    </pre>
+</p>
