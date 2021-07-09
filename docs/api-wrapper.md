@@ -5,6 +5,79 @@
   Each function in the API wrapper returns a server response, so every call can be printed to the console for debugging or user purposes.
 </p>
 
+<table>
+<thead>
+  <tr>
+    <th>Method</th>
+    <th>Parameters</th>
+    <th>Purpose</th>
+    <th>Target Endpoint</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>add_symbols()</td>
+    <td>symbols (array)</td>
+    <td>add symbols to the server's target list</td>
+    <td>/add_symbols</td>
+  </tr>
+  <tr>
+    <td>get_symbols()</td>
+    <td>none</td>
+    <td>get all symbols in the server's target list</td>
+    <td>/get_symbols</td>
+  </tr>
+  <tr>
+    <td>del_symbols()</td>
+    <td>symbols (array)</td>
+    <td>delete symbols from the server's target list</td>
+    <td>/get_symbols</td>
+  </tr>
+  <tr>
+    <td>update_stock_data()</td>
+    <td>none</td>
+    <td>update stock data on the server</td>
+    <td>/stock_store</td>
+  </tr>
+  <tr>
+    <td>update_options_data()</td>
+    <td>none</td>
+    <td>update options data on the server</td>
+    <td>/options_store</td>
+  </tr>
+  <tr>
+    <td>get_stock_val()</td>
+    <td>symbol (string), date (string &gt; YYYY-MM-DD), property (string)</td>
+    <td>get the value of a specific property of a stock</td>
+    <td>/stock_search</td>
+  </tr>
+  <tr>
+    <td>get_contract_symbols()</td>
+    <td>symbol (string), date (string &gt; YYYY-MM-DD)</td>
+    <td>fetch contract symbols (call options) of a given stock<br>on any specific date</td>
+    <td>/contract_symbols</td>
+  </tr>
+  <tr>
+    <td>get_contract_property()</td>
+    <td>symbol (string), contract symbol (string), date ( string &gt; YYYY-MM-DD),<br>property (string)</td>
+    <td>fetch contract (call option) properties</td>
+    <td>/contract_search</td>
+  </tr>
+  <tr>
+    <td>stock_query()</td>
+    <td>low (float), high (float)</td>
+    <td>query stocks based on close price (high and low bound)</td>
+    <td>/stock_price_query</td>
+  </tr>
+  <tr>
+    <td>option_query()</td>
+    <td>low (float), high (float), property (string)</td>
+    <td>query options based on a<br>specific property (high and low bound)</td>
+    <td>/option_query</td>
+  </tr>
+</tbody>
+</table>
+
 <br>
 
 <p><strong>Using All API Functions</strong></p>
